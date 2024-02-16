@@ -1,6 +1,9 @@
 ---
 import GitHub from "./icons/GitHub.astro"
 import NextJS from "./icons/NextJS.astro"
+import ReactQuery from "./icons/ReactQuery.astro"
+import React from "./icons/React.astro"
+import Firebase from "./icons/Firebase.astro"
 import Tailwind from "./icons/Tailwind.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
@@ -16,24 +19,47 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
+  REACT: {
+    name: "React",
+    class: "bg-cyan-300/70 dark:bg-[#61DBFB70] text-white",
+    icon: React,
+  },
+  FIREBASE: {
+    name: "Firebase",
+    class: "bg-yellow-600/80 text-white",
+    icon: Firebase,
+  },
+  REACT_QUERY: {
+    name: "React Query",
+    class: "bg-[#FF415480] text-white",
+    icon: ReactQuery,
+  },
 }
 const PROJECTS = [
   {
-    title: "SVGL - A beautiful library with SVG logos",
+    title: "Piyion INC",
     description:
-      "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://svgl.vercel.app/",
-    github: "https://github.com/pheralb/svgl",
-    image: "/projects/svgl.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+      "Chat center para empresas con integración de WhatsApp, Facebook Messenger, Instagram y más",
+    link: "https://piyion.web.app/",
+    github: null,
+    image: "/projects/proiily_2.png",
+    tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.FIREBASE],
   },
   {
-    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+    title: "Proiily",
     description:
-      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://adventjs.dev",
-    image: "/projects/adventjs.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+      "Dashboard para administrar conjuntos residenciales, manejo de Apartamentos, Residentes, Visitantes, Parqueaderos y más",
+    link: "https://administracion-proiily.web.app/",
+    image: "/projects/proiily.png",
+    tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.FIREBASE, TAGS.REACT_QUERY],
+  },
+  {
+    title: "Autoparti",
+    description:
+      "Web tipo libro amarillo para impactar en la industria de autopartes en Colombia",
+    link: "https://www.autoparti.com.co/",
+    image: "/projects/autoparti.png",
+    tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.FIREBASE, TAGS.REACT_QUERY],
   },
 ]
 ---
@@ -44,7 +70,7 @@ const PROJECTS = [
     <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
   <div class="w-full md:w-1/2">
     <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-      <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+      <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-48 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
     </div>
   </div>
 
@@ -57,7 +83,7 @@ const PROJECTS = [
           {tags.map((tag) => (
             <li>
               <span
-                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} font-medium py-1 px-2 `}
               >
                 <tag.icon class="size-4" />
                 {tag.name}
@@ -72,7 +98,7 @@ const PROJECTS = [
             <LinkButton href={github}>
               <GitHub class="size-6" />
               Code
-              
+
             </LinkButton>
           )}
           {link && (
